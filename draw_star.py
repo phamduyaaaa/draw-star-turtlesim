@@ -8,9 +8,11 @@ def draw_star():
     rospy.init_node('draw_star_node', anonymous=True)
     rate = rospy.Rate(5)  # Tần số gửi message 5 Hz
     vel_pub = rospy.Publisher('/turtle1/cmd_vel', Twist, queue_size=10)
+    #Nhập vào độ dài cạnh:
+    edge = float(input("Nhập độ dài cạnh: "))
     # Biến đi thẳng
     vel_msg = Twist()
-    vel_msg.linear.x = 0.2 # Tốc độ tuyến tính
+    vel_msg.linear.x = edge/10 # Tốc độ tuyến tính
     vel_msg.angular.z = 0
     # Biến quay đầu
     turn_msg = Twist()
